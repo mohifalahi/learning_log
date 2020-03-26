@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>New Topic</h3>
+<form method="post" action="">
+    {% csrf_token %}
+    {{ topic_form.as_p }}
+    <input type="submit" value="Add Topic">
+</form>
+
+{% endblock content %}

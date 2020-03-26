@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Topics</h3>
+<ul>
+    {% for topic in topics %}
+    <li><a href="{% url 'logger:entry' topic.id %}">{{ topic }}</a></li>
+    {% empty %}
+    <li>There no topics have been added yet.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'logger:add_topic' %}">Add New Topic</a>
+
+{% endblock content %}

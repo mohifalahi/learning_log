@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Topic: {{ topic }}</h3>
+<h3>Entries</h3>
+<ul>
+    {% for entry in entries %}
+    <li>{{ entry.name }} | {{ entry.date_added|date:"jS F, Y - H:i" }}</li>
+    <a href="{% url 'logger:edit_entry' entry.id %}">(Edit Entry)</a>
+    {% empty %}
+    <li>There no entries have been added yet.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'logger:add_entry' topic.id %}">Add New Entry</a>
+
+{% endblock content %}
